@@ -11,7 +11,18 @@ generator client {
 }
 
 model User {
-  username String @id
-  password String
+  username    String @id
+  password    String
   displayName String
+  posts       Tweet[]
+}
+
+model Tweet {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String   
+  image     String?
+  author    User?    @relation(fields: [authorId], references: [username])
+  authorId  String?
 }
