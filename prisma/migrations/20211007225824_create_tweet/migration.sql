@@ -3,8 +3,7 @@ CREATE TABLE `Tweet` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
-    `published` BOOLEAN NOT NULL DEFAULT false,
-    `title` VARCHAR(255) NOT NULL,
+    `title` VARCHAR(191) NOT NULL,
     `image` VARCHAR(191),
     `authorId` VARCHAR(191),
 
