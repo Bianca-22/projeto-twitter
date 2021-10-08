@@ -11,4 +11,10 @@ export class TweetsService {
 
     return tweet;
   }
+
+  async delete(where: Prisma.TweetWhereUniqueInput): Promise<Tweet> {
+    const tweet = await this.db.tweet.delete({ where });
+
+    return tweet;
+  }
 }

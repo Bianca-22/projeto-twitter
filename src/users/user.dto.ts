@@ -12,4 +12,15 @@ export class CreateUserDto {
   @IsString()
   @Length(2, 50)
   displayName: string;
+
+  @IsString()
+  image: string;
+
+  @IsString()
+  @Length(0, 100)
+  bio: string
+
+  @IsString()
+  @Length(1, 10)
+  birthDate: string;
 }

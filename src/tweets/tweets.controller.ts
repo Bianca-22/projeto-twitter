@@ -1,4 +1,11 @@
-import { Controller, Post, Body, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  UseGuards,
+  Delete,
+  Param,
+} from '@nestjs/common';
 import { Tweet } from '.prisma/client';
 import { CreateTweetDto } from './tweet.dto';
 import { TweetsService } from './tweets.service';
@@ -12,5 +19,10 @@ export class TweetsController {
   @Post()
   create(@Body() data: CreateTweetDto): Promise<Tweet> {
     return this.service.create(data);
+  }
+
+  @Delete(':id')
+  delete(@Param('id') id: string) {
+    return this.service.delete({ id: Number(id) });
   }
 }

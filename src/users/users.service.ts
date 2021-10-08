@@ -41,4 +41,16 @@ export class UsersService {
 
     return user;
   }
+
+  async delete(username: string): Promise<User> {
+    const user = await this.db.user.delete({
+      where: { username },
+    });
+
+    return user;
+  }
+
+  // async update(data: Prisma.UserCreateInput): Promise<User> {
+  //   const user = await this.db.user.update({});
+  // }
 }
