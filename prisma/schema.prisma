@@ -14,20 +14,39 @@ model User {
   username    String @id
   password    String
   displayName String
-  image       String
+  image       String?
+  email       String @unique
   bio         String
   birthDate   String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   posts       Tweet[]
+  follows     Follow[]
+  likes       Like[]
 }
 
 model Tweet {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  title     String   
+  text      String   
   image     String?
   author    User?    @relation(fields: [authorId], references: [username])
+  authorId  String?
+  likes     Like[]
+}
+
+model Follow {
+  id         Int   @id @default(autoincrement())
+  author       User? @relation(fields: [authorId], references: [username])
+  authorId     String?
+  followedId Int
+}
+
+model Like {
+  id      Int    @id @default(autoincrement())
+  Tweet   Tweet? @relation(fields: [tweetId], references: [id])
+  tweetId Int?
+  author    User?  @relation(fields: [authorId], references: [username])
   authorId  String?
 }
