@@ -17,8 +17,11 @@ export class CreateUserDto {
   image: string;
 
   @IsString()
+  email: string;
+
+  @IsString()
   @Length(0, 100)
-  bio: string
+  bio: string;
 
   @IsString()
   @Length(1, 10)

@@ -6,6 +6,7 @@ import {
 import { User, Prisma } from '.prisma/client';
 import { PrismaService } from 'src/prisma.service';
 import * as bcrypt from 'bcrypt';
+import { CreateUserDto } from './user.dto';
 
 @Injectable()
 export class UsersService {
@@ -49,8 +50,4 @@ export class UsersService {
 
     return user;
   }
-
-  // async update(data: Prisma.UserCreateInput): Promise<User> {
-  //   const user = await this.db.user.update({});
-  // }
 }
