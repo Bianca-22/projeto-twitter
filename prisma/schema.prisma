@@ -40,7 +40,7 @@ model Follow {
   id         Int   @id @default(autoincrement())
   author       User? @relation(fields: [authorId], references: [username])
   authorId     String?
-  followedId Int
+  followedId String
 }
 
 model Like {
