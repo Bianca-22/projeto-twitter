@@ -11,9 +11,9 @@ import {
   Req,
 } from '@nestjs/common';
 import { Like } from '.prisma/client';
-import { LikeService } from './like.service';
+import { LikeService } from './likes.service';
 import { AuthGuard } from '@nestjs/passport';
-import { CreateLikeDto } from './like.dto';
+import { CreateLikeDto } from './dto/like.dto';
 
 @Controller('like')
 export class LikeController {
