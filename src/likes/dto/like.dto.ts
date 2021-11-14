@@ -7,5 +7,5 @@ export class CreateLikeDto {
 
   @IsOptional()
   @IsNumber()
-  userId?: number;
+  authorId?: number;
 }
